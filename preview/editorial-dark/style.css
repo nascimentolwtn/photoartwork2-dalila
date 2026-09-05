@@ -1,0 +1,205 @@
+/* Editorial Dark preview theme — shared across preview/editorial-dark/*.html. Not linked from the live site. */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: oklch(0.19 0.014 55);
+  color: oklch(0.92 0.012 70);
+  font-family: 'Work Sans', Helvetica, Arial, sans-serif;
+}
+a { color: inherit; text-decoration: none; }
+a:hover { color: oklch(0.68 0.14 55); }
+img { display: block; max-width: 100%; }
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 6vw;
+  border-bottom: 1px solid oklch(0.32 0.01 55);
+  flex-wrap: wrap;
+  gap: 20px;
+}
+.logo { font-family: 'Bodoni Moda', Georgia, serif; font-size: 22px; }
+.links { display: flex; gap: 32px; flex-wrap: wrap; }
+.links a {
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: oklch(0.75 0.01 70);
+}
+.links a.current { color: oklch(0.92 0.012 70); }
+.ig-icon { display: flex; align-items: center; }
+
+/* Section heading with rule */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+  padding: 0 6vw;
+  margin-bottom: 44px;
+}
+.section-head h2 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 500;
+  font-size: 30px;
+  margin: 0;
+}
+.section-head .line { flex: 1; height: 1px; background: oklch(0.32 0.01 55); }
+
+.page-head { padding: 8vw 6vw 3vw; }
+.eyebrow {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: oklch(0.68 0.14 55);
+  margin: 0 0 24px;
+}
+.page-head h1 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(36px, 4.5vw, 64px);
+  line-height: 1.05;
+  margin: 0;
+}
+.page-head h1 em { font-style: italic; color: oklch(0.68 0.14 55); }
+
+/* Hero (home only) */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: end;
+  padding: 8vw 6vw 6vw;
+  gap: 48px;
+}
+.hero h1 {
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-weight: 500;
+  font-size: clamp(40px, 5.5vw, 84px);
+  line-height: 1;
+  margin: 0;
+}
+.hero h1 em { font-style: italic; color: oklch(0.68 0.14 55); }
+.hero-art img { width: 100%; height: 560px; object-fit: cover; border: 1px solid oklch(0.32 0.01 55); }
+.hero-caption {
+  margin: 18px 0 0;
+  font-size: 13px;
+  color: oklch(0.65 0.01 70);
+  max-width: 420px;
+  line-height: 1.6;
+}
+
+/* Featured / portfolio grid of cards */
+.featured { padding: 32px 0 6vw; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+  padding: 0 6vw;
+}
+.card img { width: 100%; height: 340px; object-fit: cover; border: 1px solid oklch(0.32 0.01 55); }
+.card h3 { font-size: 15px; font-weight: 500; margin: 20px 0 6px; font-family: 'Bodoni Moda', Georgia, serif; }
+.card p { font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: oklch(0.6 0.01 70); margin: 0; }
+
+/* Numbered link/press list */
+.press { padding: 0 0 6vw; }
+.press-list { list-style: none; margin: 0; padding: 0 6vw; counter-reset: item; }
+.press-list li {
+  counter-increment: item;
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  padding: 20px 0;
+  border-bottom: 1px solid oklch(0.3 0.01 55);
+  font-size: 16px;
+}
+.press-list li::before {
+  content: counter(item, decimal-leading-zero);
+  font-family: 'Bodoni Moda', Georgia, serif;
+  font-size: 13px;
+  color: oklch(0.68 0.14 55);
+  flex: 0 0 26px;
+}
+.press-list li.placeholder { color: oklch(0.65 0.01 70); font-style: italic; }
+.press-list .desc { display: block; font-size: 13px; color: oklch(0.65 0.01 70); margin-top: 6px; }
+
+/* Bio (Sobre) */
+.bio { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 56px; padding: 0 6vw 6vw; }
+.bio p { font-size: 16px; line-height: 1.75; color: oklch(0.85 0.01 70); }
+.bio-portrait img { width: 100%; border: 1px solid oklch(0.32 0.01 55); }
+
+/* Design objects */
+.design-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; padding: 0 6vw 6vw; }
+.design-card img { width: 100%; height: 300px; object-fit: cover; border: 1px solid oklch(0.32 0.01 55); }
+.design-card h3 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 20px; margin: 22px 0 10px; }
+.design-card p { font-size: 14px; line-height: 1.6; color: oklch(0.75 0.01 70); margin: 0 0 8px; }
+.design-card .btn {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: 1px solid oklch(0.5 0.01 70);
+  padding: 10px 18px;
+}
+.design-card .btn:hover { border-color: oklch(0.68 0.14 55); }
+
+/* Portfolio full gallery */
+.gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0 6vw 6vw; }
+.gallery-item img { width: 100%; height: 220px; object-fit: cover; border: 1px solid oklch(0.32 0.01 55); }
+.gallery-item p { font-size: 12px; line-height: 1.5; color: oklch(0.7 0.01 70); margin: 12px 0 0; }
+
+/* Contact */
+.contact-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; padding: 0 6vw 6vw; }
+.contact-info h3 { font-family: 'Bodoni Moda', Georgia, serif; font-weight: 500; font-size: 20px; margin: 28px 0 10px; }
+.contact-info h3:first-child { margin-top: 0; }
+.contact-info p { font-size: 15px; line-height: 1.7; color: oklch(0.82 0.01 70); margin: 0; }
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.contact-form label { font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; color: oklch(0.65 0.01 70); }
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid oklch(0.4 0.01 55);
+  color: oklch(0.92 0.012 70);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 15px;
+  padding: 8px 0;
+}
+.contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: oklch(0.68 0.14 55); }
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: none;
+  border: 1px solid oklch(0.5 0.01 70);
+  color: oklch(0.92 0.012 70);
+  font-family: 'Work Sans', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 12px 22px;
+  cursor: pointer;
+}
+.contact-form button:hover { border-color: oklch(0.68 0.14 55); color: oklch(0.68 0.14 55); }
+
+.foot {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 6vw;
+  border-top: 1px solid oklch(0.32 0.01 55);
+  font-size: 13px;
+  color: oklch(0.6 0.01 70);
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.ig-foot { display: flex; align-items: center; gap: 10px; }
+
+@media (max-width: 900px) {
+  .grid, .design-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .bio, .contact-wrap { grid-template-columns: 1fr; }
+}
+@media (max-width: 600px) {
+  .hero { grid-template-columns: 1fr; }
+  .grid, .design-grid, .gallery-grid { grid-template-columns: 1fr; }
+}
