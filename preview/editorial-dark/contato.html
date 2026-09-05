@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script>document.documentElement.classList.add('js-reveal');</script>
   <header class="nav">
     <div class="logo">Dalila Nascimento</div>
     <nav class="links">
@@ -35,7 +36,7 @@
     <h1>Contato</h1>
   </div>
 
-  <section class="contact-wrap">
+  <section class="contact-wrap reveal-fade">
     <div class="contact-info">
       <h3>Dalila Nascimento</h3>
       <p>
@@ -81,5 +82,24 @@
       @dalilahsnas
     </a>
   </footer>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.reveal-fade');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>

@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script>document.documentElement.classList.add('js-reveal');</script>
   <header class="nav">
     <div class="logo">Dalila Nascimento</div>
     <nav class="links">
@@ -37,37 +38,37 @@
 
   <section class="press" style="padding-top: 8px;">
     <ul class="press-list">
-      <li>
+      <li class="reveal-fade">
         <div>
           Espaço YUCCA
           <span class="desc">Aulas de Modelagem com Evolução para Esculturas, às terças-feiras. Vagas limitadas — <a href="contato.html">entre em contato</a>.</span>
         </div>
       </li>
-      <li>
+      <li class="reveal-fade" style="transition-delay: 0.06s">
         <div>
           <a href="http://www.autvis.org.br/galeria/ver/id/93/Dalila_Nascimento/" target="_blank">Galeria AUTVIS</a>
           <span class="desc">Artista representada pela AUTVIS — Associação Brasileira dos Direitos de Autores Visuais.</span>
         </div>
       </li>
-      <li>
+      <li class="reveal-fade" style="transition-delay: 0.12s">
         <div>
           <a href="../../documentation/Divulg_site_WorkshopDeMascaras.pdf" target="_blank">Workshop de Máscaras</a>
           <span class="desc">&quot;Descubra-se, Abra Seu Canal para o Hoje e Amanhã&quot;.</span>
         </div>
       </li>
-      <li>
+      <li class="reveal-fade" style="transition-delay: 0.18s">
         <div>
           <a href="http://www.matilhacultural.com.br/" target="_blank">Projeto TETO &amp; TINTA</a>
           <span class="desc">Participação exposta no espaço Matilha Cultural.</span>
         </div>
       </li>
-      <li>
+      <li class="reveal-fade" style="transition-delay: 0.24s">
         <div>
           Feitio de Oração
           <span class="desc">Participação no projeto, organização de Maria dos Anjos, no <a href="http://www.sp360.com.br/site/conteudo/index.php?in_secao=38&in_idioma=1&in_conteudo=48" target="_blank">Conjunto Nacional</a> (Av. Paulista) e na <a href="http://www.casadeportugalsp.com.br/" target="_blank">Casa de Portugal</a>.</span>
         </div>
       </li>
-      <li class="placeholder">
+      <li class="placeholder reveal-fade" style="transition-delay: 0.3s">
         <div>
           [exemplo] Novo trabalho no ateliê
           <span class="desc">[link do post do Instagram] — formato para futuras publicações vindas do Instagram.</span>
@@ -87,5 +88,24 @@
       @dalilahsnas
     </a>
   </footer>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.reveal-fade');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>

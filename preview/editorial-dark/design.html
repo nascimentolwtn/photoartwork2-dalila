@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script>document.documentElement.classList.add('js-reveal');</script>
   <header class="nav">
     <div class="logo">Dalila Nascimento</div>
     <nav class="links">
@@ -36,21 +37,21 @@
   </div>
 
   <section class="design-grid">
-    <div class="design-card">
+    <div class="design-card reveal-fade">
       <img src="../../images/img_luminarias.jpg" alt="Luminárias" />
       <h3>Luminárias</h3>
       <p>Luminárias em cerâmica e fibra de vidro, designs exclusivos e modelos com produção limitada.</p>
       <p>Encomendas personalizadas.</p>
       <a class="btn" href="contato.html">Entre em Contato</a>
     </div>
-    <div class="design-card">
+    <div class="design-card reveal-fade" style="transition-delay: 0.12s">
       <img src="../../images/portfolio_dalila/originais/img_relogios.jpg" alt="Relógios" />
       <h3>Relógios</h3>
       <p>Relógios em cerâmica, vários modelos: de parede, de móvel, com ou sem pedestal, em materiais de sua escolha a combinar.</p>
       <p>Encomendas personalizadas.</p>
       <a class="btn" href="contato.html">Entre em Contato</a>
     </div>
-    <div class="design-card">
+    <div class="design-card reveal-fade" style="transition-delay: 0.24s">
       <img src="../../images/portfolio_dalila/originais/img_drummont.jpg" alt="Carlos Drumond de Andrade" />
       <h3>Peças Personalizadas</h3>
       <p>Consulte opções de peças personalizadas para presentes ou ambientação particular para sua residência em geral.</p>
@@ -69,5 +70,24 @@
       @dalilahsnas
     </a>
   </footer>
+
+  <script>
+    (function () {
+      var items = document.querySelectorAll('.reveal-fade');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>

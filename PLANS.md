@@ -20,6 +20,10 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 - Scroll-reveal wasn't triggering. Root cause: a CSS specificity mistake — the rule that hides each section by default happened to be *more* specific than the rule meant to reveal it once scrolled into view, so the "reveal" could never win even though the scripting was working correctly. Fixed by rebalancing the selectors so the reveal rule always wins. Also reduced how much empty space each section reserved on narrow screens, which was making the page feel stuck while scrolling toward the next section.
 - Portfolio thumbnails opening in an overlay "broke totally" on phone. Rather than patch the overlay (fixed-position overlays are a common source of mobile browser bugs, especially around locking background scroll), replaced it with the same pattern the current live site already uses: a large "now viewing" image above the thumbnail grid — clicking a thumbnail swaps that image in place and scrolls up to it, no overlay, no scroll-locking, nothing fixed-position.
 
+**Feedback round 3 (2026-09-05):**
+- Scroll-reveal requested on every page, not just Home. Added the same fade/slide-in-on-scroll treatment to Sobre (bio block), Portfólio (viewer + thumbnail grid), Design (each object card, staggered), Links (each list entry, staggered) and Contato (the info/form block) — same mechanism as the homepage (falls back to fully visible without JS).
+- Dalila found the background too dark; she likes the warm/brown tone and the fonts as they are. Lightened the whole palette (background, panel, and border tones moved from near-black to a warm mid-brown) while keeping the same amber accent color and typography. Colors are now defined as CSS variables at the top of `style.css` so further tone adjustments are a one-line change instead of hunting through the file.
+
 ## Instagram post links (replaces Notion articles plan)
 
 **Status:** planning — not implemented yet.

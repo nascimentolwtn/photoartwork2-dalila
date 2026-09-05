@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script>document.documentElement.classList.add('js-reveal');</script>
   <header class="nav">
     <div class="logo">Dalila Nascimento</div>
     <nav class="links">
@@ -35,12 +36,12 @@
     <h1>Portfólio</h1>
   </div>
 
-  <section class="gallery-viewer" id="galleryViewer">
+  <section class="gallery-viewer reveal-fade" id="galleryViewer">
     <img id="viewerImg" src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" />
     <p id="viewerCaption">&quot;Janelas&quot; — Primeira Fase</p>
   </section>
 
-  <section class="gallery-grid">
+  <section class="gallery-grid reveal-fade" style="transition-delay: 0.1s">
     <a class="gallery-item is-selected" href="../../images/portfolio_dalila/portifolio_19.jpg">
       <img src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" />
       <p>&quot;Janelas&quot; — Primeira Fase</p>
@@ -155,6 +156,23 @@
           viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
       });
+    })();
+
+    (function () {
+      var fades = document.querySelectorAll('.reveal-fade');
+      if (!('IntersectionObserver' in window)) {
+        fades.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fades.forEach(function (el) { observer.observe(el); });
     })();
   </script>
 </body>
