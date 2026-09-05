@@ -15,6 +15,15 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 - No Notion integration, no article-writing workflow needed.
 
 **Open questions / inputs needed before implementing:**
-- Instagram post URL(s) to link.
+- Instagram post URL(s) to link (for the Links page entries).
 - Short title/caption to use as the link text for each post.
-- Whether a general "follow on Instagram" link (profile-level, not post-specific) is also wanted, e.g. in the footer.
+
+## General Instagram follow link in the footer
+
+**Status:** planning — not implemented yet.
+
+**Decided (2026-09-05):** add a general "follow on Instagram" link in the site footer (the commented-out social icons row present on `index.html`, `about.html`, `contact.html`, `blog.html`, `blog_2004.html`), pointing to https://www.instagram.com/dalilahsnas
+
+**Proposed approach:**
+- Uncomment/adapt the existing footer social icons block and add an Instagram icon/link alongside (or replacing) the current twitter/facebook/rss placeholders, since there's no `images/instagram.png` asset yet.
+- Apply consistently across all pages that carry that footer block.
