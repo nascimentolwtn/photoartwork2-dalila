@@ -11,6 +11,7 @@
 </head>
 
 <body>
+  <script>document.documentElement.classList.add('js-reveal');</script>
   <header class="nav">
     <div class="logo">Dalila Nascimento</div>
     <nav class="links">
@@ -30,35 +31,64 @@
     </a>
   </header>
 
-  <section class="hero">
-    <div>
+  <section class="carousel" id="carousel">
+    <figure class="carousel-slide is-active">
+      <img src="../../images/home_0.jpg" alt="Dalila Nascimento em exposição" style="object-position: center 18%;" />
+    </figure>
+    <figure class="carousel-slide">
+      <img src="../../images/poluicao-frente.jpg" alt="Poluição das Águas e o Código de Barras I" style="object-position: center 20%;" />
+    </figure>
+    <figure class="carousel-slide">
+      <img src="../../images/portfolio_dalila/originais/c%C3%B3digo%20de%20barras%20Dalila.jpg" alt="Luminária escultórica" />
+    </figure>
+    <figure class="carousel-slide">
+      <img src="../../images/portfolio_dalila/originais/contatos_dalila.jpg" alt="A Árvore da Vida e os Valores Internos" />
+    </figure>
+    <div class="carousel-caption">
       <p class="eyebrow">Escultura &amp; Instalação</p>
-      <h1>O que <em>escorre</em>,<br/>o que resiste</h1>
+      <h1>O que <em>escorre</em>, o que resiste</h1>
     </div>
-    <div class="hero-art">
-      <img src="../../images/poluicao-frente.jpg" alt="Poluição das Águas e o Código de Barras I — Frente" />
-      <p class="hero-caption">&quot;Poluição das Águas e o Código de Barras I&quot; — tecido, metal e tinta suspensos.</p>
+    <div class="carousel-dots">
+      <button class="dot is-active" data-index="0" aria-label="Slide 1"></button>
+      <button class="dot" data-index="1" aria-label="Slide 2"></button>
+      <button class="dot" data-index="2" aria-label="Slide 3"></button>
+      <button class="dot" data-index="3" aria-label="Slide 4"></button>
     </div>
   </section>
 
-  <section class="featured">
-    <div class="section-head"><h2>Trabalhos recentes</h2><span class="line"></span></div>
-    <div class="grid">
-      <div class="card">
-        <img src="../../images/poluicao-verso.jpg" alt="Poluição das Águas e o Código de Barras I — Verso" />
-        <h3>Poluição das Águas e o Código de Barras I — Verso</h3>
-        <p>tecido, metal e tinta</p>
-      </div>
-      <div class="card">
-        <img src="../../images/img_relogios.jpg" alt="Relógio escultórico em madeira e metal" />
-        <h3>Sem título</h3>
-        <p>madeira e metal</p>
-      </div>
-      <div class="card">
-        <img src="../../images/img_luminarias.jpg" alt="Luminária escultórica em metal" />
-        <h3>Luminária</h3>
-        <p>metal e vidro</p>
-      </div>
+  <section class="reveal-section">
+    <div class="reveal-media reveal-fade">
+      <img src="../../images/poluicao-verso.jpg" alt="Poluição das Águas e o Código de Barras I - Verso" />
+    </div>
+    <div class="reveal-text reveal-fade">
+      <p class="eyebrow">Instalação suspensa</p>
+      <h2>Poluição das Águas <em>e o Código de Barras</em></h2>
+      <p>Tecido, metal e tinta cruzam-se em painéis suspensos — uma série que volta, em diferentes versões, ao mesmo gesto: o que a água carrega e o que fica marcado.</p>
+      <a class="more" href="portfolio.html">Ver no portfólio →</a>
+    </div>
+  </section>
+
+  <section class="reveal-section reverse">
+    <div class="reveal-media reveal-fade">
+      <img src="../../images/portfolio_dalila/originais/contatos_dalila.jpg" alt="A Árvore da Vida e os Valores Internos" />
+    </div>
+    <div class="reveal-text reveal-fade">
+      <p class="eyebrow">Cerâmica</p>
+      <h2>A Árvore da Vida <em>e os Valores Internos</em></h2>
+      <p>Duas placas em cerâmica — uma talhada em relevo, outra pintada em vidrado dourado — reunidas num só gesto de mãos que seguram luz.</p>
+      <a class="more" href="sobre.html">Sobre a artista →</a>
+    </div>
+  </section>
+
+  <section class="reveal-section">
+    <div class="reveal-media reveal-fade">
+      <img src="../../images/portfolio_dalila/originais/Luminarias_Natureza_e_a_Luz.jpg" alt="Natureza e a Luz" />
+    </div>
+    <div class="reveal-text reveal-fade">
+      <p class="eyebrow">Objetos autorais</p>
+      <h2>Natureza <em>e a Luz</em></h2>
+      <p>Luminárias esculpidas à mão, cada uma com sua própria talha e postura — objetos de encomenda, feitos um a um.</p>
+      <a class="more" href="design.html">Ver em Design →</a>
     </div>
   </section>
 
@@ -83,5 +113,55 @@
       @dalilahsnas
     </a>
   </footer>
+
+  <script>
+    (function () {
+      var slides = document.querySelectorAll('#carousel .carousel-slide');
+      var dots = document.querySelectorAll('#carousel .dot');
+      var current = 0;
+      var timer;
+
+      function show(index) {
+        slides[current].classList.remove('is-active');
+        dots[current].classList.remove('is-active');
+        current = (index + slides.length) % slides.length;
+        slides[current].classList.add('is-active');
+        dots[current].classList.add('is-active');
+      }
+
+      function next() { show(current + 1); }
+
+      function restart() {
+        clearInterval(timer);
+        timer = setInterval(next, 5500);
+      }
+
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          show(parseInt(dot.getAttribute('data-index'), 10));
+          restart();
+        });
+      });
+
+      if (slides.length > 1) restart();
+    })();
+
+    (function () {
+      var items = document.querySelectorAll('.reveal-fade');
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in-view'); });
+        return;
+      }
+      var observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.2 });
+      items.forEach(function (el) { observer.observe(el); });
+    })();
+  </script>
 </body>
 </html>

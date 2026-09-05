@@ -6,7 +6,15 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 
 **Status:** direction chosen (2026-09-05) — **Editorial Dark**, out of the three sketched in the "Dalila Homepage Directions" design canvas (Gallery White / Editorial Dark / Asymmetric Grid). A modernized version of the current dark theme: warm charcoal background, editorial serif display type (Bodoni Moda) + Work Sans body, a deep amber accent replacing the dated flat green, and an Instagram icon in the nav and footer.
 
-**In progress:** migrating this direction into real HTML/CSS in `preview/editorial-dark/` — a folder not linked from the live site's navigation, so it can be reviewed (this weekend, with Dalila) without touching the live pages. Starting with the homepage.
+**In progress:** migrating this direction into real HTML/CSS in `preview/editorial-dark/` — a folder not linked from the live site's navigation, so it can be reviewed (this weekend, with Dalila) without touching the live pages. All six pages (Home, Sobre, Portfólio, Design, Links, Contato) are migrated and cross-linked, using real photos and content ported from the live site. Published via GitHub Pages on this branch for review.
+
+**Feedback round 1 (2026-09-05):**
+- Portfolio thumbnails were too low-res (they used the old tiny `_thumb.jpg` files, some only ~50×75px). Fixed: the gallery now uses the full-size images directly, and swaps in the higher-resolution originals found in `images/portfolio_dalila/originais/` where available.
+- The homepage's single static hero image was a step down from the live site's auto-advancing image carousel. Fixed: rebuilt the hero as a real crossfading carousel (vanilla JS, autoplay + dot navigation) using real photos.
+- Requested a more modern feel: full-screen, alternating image/content sections that reveal as you scroll (common on contemporary portfolio/agency sites). Added three of these below the carousel, each pairing a real photo with a short description and a link further into the site, using IntersectionObserver + a CSS fade/slide-in (falls back to fully visible if JS doesn't run).
+- Caught and fixed two content-accuracy issues while doing this: `home_2.jpg`/`home_3.jpg` turned out to be leftover stock photos (tulips, stone ruins) from the original template, not Dalila's work — removed from the carousel. `código de barras Dalila.jpg` (despite its filename) is actually a photo of a mirrored floor lamp, not the "Poluição das Águas" piece — recaptioned correctly and swapped the Poluição section over to the correct photo (`poluicao-verso.jpg`).
+
+**Known follow-up (not urgent):** a couple of the higher-resolution originals are quite large as files (e.g. the "Árvore da Vida" photo is ~2.5MB); fine for this weekend's review, but worth compressing/resizing before this becomes the real live site.
 
 ## Instagram post links (replaces Notion articles plan)
 
