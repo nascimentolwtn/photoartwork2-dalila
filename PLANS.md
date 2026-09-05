@@ -2,6 +2,12 @@
 
 Planning notes for upcoming site changes. No code changes are made until a plan here is confirmed and explicitly greenlit.
 
+## Homepage redesign
+
+**Status:** direction chosen (2026-09-05) — **Editorial Dark**, out of the three sketched in the "Dalila Homepage Directions" design canvas (Gallery White / Editorial Dark / Asymmetric Grid). A modernized version of the current dark theme: warm charcoal background, editorial serif display type (Bodoni Moda) + Work Sans body, a deep amber accent replacing the dated flat green, and an Instagram icon in the nav and footer.
+
+**In progress:** migrating this direction into real HTML/CSS in `preview/editorial-dark/` — a folder not linked from the live site's navigation, so it can be reviewed (this weekend, with Dalila) without touching the live pages. Starting with the homepage.
+
 ## Instagram post links (replaces Notion articles plan)
 
 **Status:** planning — not implemented yet.
