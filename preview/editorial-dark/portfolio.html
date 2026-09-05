@@ -35,8 +35,13 @@
     <h1>Portfólio</h1>
   </div>
 
+  <section class="gallery-viewer" id="galleryViewer">
+    <img id="viewerImg" src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" />
+    <p id="viewerCaption">&quot;Janelas&quot; — Primeira Fase</p>
+  </section>
+
   <section class="gallery-grid">
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_19.jpg">
+    <a class="gallery-item is-selected" href="../../images/portfolio_dalila/portifolio_19.jpg">
       <img src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" />
       <p>&quot;Janelas&quot; — Primeira Fase</p>
     </a>
@@ -130,59 +135,25 @@
     </a>
   </footer>
 
-  <div class="lightbox" id="lightbox" hidden>
-    <button class="lightbox-close" id="lightboxClose" aria-label="Fechar">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Anterior">&lsaquo;</button>
-    <figure class="lightbox-figure">
-      <img id="lightboxImg" src="" alt="" />
-      <figcaption id="lightboxCaption"></figcaption>
-    </figure>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Próxima">&rsaquo;</button>
-  </div>
-
   <script>
     (function () {
       var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
-      var lightbox = document.getElementById('lightbox');
-      var lightboxImg = document.getElementById('lightboxImg');
-      var lightboxCaption = document.getElementById('lightboxCaption');
-      var current = 0;
+      var viewer = document.getElementById('galleryViewer');
+      var viewerImg = document.getElementById('viewerImg');
+      var viewerCaption = document.getElementById('viewerCaption');
 
-      function open(index) {
-        current = (index + items.length) % items.length;
-        var item = items[current];
-        lightboxImg.src = item.getAttribute('href');
-        var caption = item.querySelector('p');
-        lightboxCaption.textContent = caption ? caption.textContent : '';
-        lightbox.hidden = false;
-        document.body.style.overflow = 'hidden';
-      }
-
-      function close() {
-        lightbox.hidden = true;
-        document.body.style.overflow = '';
-      }
-
-      items.forEach(function (item, index) {
+      items.forEach(function (item) {
         item.addEventListener('click', function (event) {
           event.preventDefault();
-          open(index);
+          items.forEach(function (i) { i.classList.remove('is-selected'); });
+          item.classList.add('is-selected');
+          var img = item.querySelector('img');
+          viewerImg.src = item.getAttribute('href');
+          viewerImg.alt = img ? img.alt : '';
+          var caption = item.querySelector('p');
+          viewerCaption.textContent = caption ? caption.textContent : '';
+          viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
         });
-      });
-
-      document.getElementById('lightboxClose').addEventListener('click', close);
-      document.getElementById('lightboxPrev').addEventListener('click', function () { open(current - 1); });
-      document.getElementById('lightboxNext').addEventListener('click', function () { open(current + 1); });
-
-      lightbox.addEventListener('click', function (event) {
-        if (event.target === lightbox) close();
-      });
-
-      document.addEventListener('keydown', function (event) {
-        if (lightbox.hidden) return;
-        if (event.key === 'Escape') close();
-        if (event.key === 'ArrowLeft') open(current - 1);
-        if (event.key === 'ArrowRight') open(current + 1);
       });
     })();
   </script>

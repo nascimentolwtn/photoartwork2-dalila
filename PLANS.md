@@ -16,6 +16,10 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 
 **Known follow-up (not urgent):** a couple of the higher-resolution originals are quite large as files (e.g. the "Árvore da Vida" photo is ~2.5MB); fine for this weekend's review, but worth compressing/resizing before this becomes the real live site.
 
+**Feedback round 2 (2026-09-05) — two mobile/Chrome Android bugs reported:**
+- Scroll-reveal wasn't triggering. Root cause: a CSS specificity mistake — the rule that hides each section by default happened to be *more* specific than the rule meant to reveal it once scrolled into view, so the "reveal" could never win even though the scripting was working correctly. Fixed by rebalancing the selectors so the reveal rule always wins. Also reduced how much empty space each section reserved on narrow screens, which was making the page feel stuck while scrolling toward the next section.
+- Portfolio thumbnails opening in an overlay "broke totally" on phone. Rather than patch the overlay (fixed-position overlays are a common source of mobile browser bugs, especially around locking background scroll), replaced it with the same pattern the current live site already uses: a large "now viewing" image above the thumbnail grid — clicking a thumbnail swaps that image in place and scrolls up to it, no overlay, no scroll-locking, nothing fixed-position.
+
 ## Instagram post links (replaces Notion articles plan)
 
 **Status:** planning — not implemented yet.
