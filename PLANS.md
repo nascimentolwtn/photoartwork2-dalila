@@ -10,9 +10,15 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 
 **Change of plans (2026-09-05):** she won't write new articles in Notion. Instead, new entries on the "Links" page will link directly out to her existing Instagram posts, rather than to a full article page on this site.
 
-**Proposed approach:**
+**Proposed approach: manually curated entries** (chosen over oEmbed, third-party feed widgets, or the Instagram API — see rationale below):
 - Add new entries to `blog_2004.html`, following the same pattern as existing entries (`<h4>` title + `<p>` description with an `<a href="..." target="_blank">` link), but pointing at Instagram post URLs instead of a local blog page.
-- No Notion integration, no article-writing workflow needed.
+- Optionally save a screenshot/thumbnail of the post locally (like the other images in `images/`) to show alongside the entry, same as the existing `right_content` image on that page.
+- No Notion integration, no article-writing workflow, no third-party script or API dependency needed — just a hand-added entry each time there's a new post to feature.
+
+**Why this approach:** compared for a static, hand-maintained HTML/CSS site with no backend:
+- *Official oEmbed embed* (Instagram's `<blockquote>` + `embed.js`) renders the live post inline, but pulls a script from Instagram on every page load and can break if Instagram changes the embed API.
+- *Third-party feed widgets* (SnapWidget, LightWidget, Elfsight) auto-update a grid of latest posts, but add a paid/rate-limited third-party dependency for something that can just be a link.
+- *Manually curated entries* match the curated-entry style already used on the Links page, have zero external dependencies, and won't break — tradeoff is someone has to add an entry (and optionally a screenshot) by hand each time.
 
 **Open questions / inputs needed before implementing:**
 - Instagram post URL(s) to link (for the Links page entries).
