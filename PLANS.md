@@ -27,3 +27,5 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 **Proposed approach:**
 - Uncomment/adapt the existing footer social icons block and add an Instagram icon/link alongside (or replacing) the current twitter/facebook/rss placeholders, since there's no `images/instagram.png` asset yet.
 - Apply consistently across all pages that carry that footer block.
+
+**Update (2026-09-05):** the Instagram link should also be added on the (new) contact page — currently `contact.html`, which lists phone/email/contact form and links to the old site. Note: it's not yet clear if "new contact page" means a planned redesign of `contact.html` or just adding the link to the existing one; needs confirming before implementing.
