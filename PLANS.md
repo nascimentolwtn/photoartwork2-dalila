@@ -24,6 +24,14 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 - Scroll-reveal requested on every page, not just Home. Added the same fade/slide-in-on-scroll treatment to Sobre (bio block), Portfólio (viewer + thumbnail grid), Design (each object card, staggered), Links (each list entry, staggered) and Contato (the info/form block) — same mechanism as the homepage (falls back to fully visible without JS).
 - Dalila found the background too dark; she likes the warm/brown tone and the fonts as they are. Lightened the whole palette (background, panel, and border tones moved from near-black to a warm mid-brown) while keeping the same amber accent color and typography. Colors are now defined as CSS variables at the top of `style.css` so further tone adjustments are a one-line change instead of hunting through the file.
 
+**Feedback round 4 (2026-09-05) — restructured as a one-page site:**
+- The reveal effect still wasn't reading as "working" on the secondary pages — turned out the real cause was that Sobre/Design/Links/Contato had so little content that each section was already visible on load, so it faded in almost instantly instead of on an actual scroll.
+- Referenced two examples: a template with a strong scroll-reveal feel (scroll-revealing.webflow.io), and a one-page site where the nav smooth-scrolls to sections instead of loading new pages (webflow.com/made-in-webflow/website/flaechenverbauung). Also asked for full-width banner photos between sections, echoing the very first ask in this whole thread (interlaced full-screen photos and revealed content).
+- All three point at the same fix: **`index.html` is now the entire one-page site** — Home, Sobre, Portfólio, Design, Links and Contato are sections on one continuously-scrolling page, joined by full-width banner photos, with a sticky nav that smooth-scrolls to each section (`#sobre`, `#portfolio`, ...) and highlights the current section as you scroll past it. This gives every section real scroll distance, so the reveal effect reads properly everywhere, not just Home.
+- The previous separate `sobre.html` / `portfolio.html` / `design.html` / `links.html` / `contato.html` files are left in place but are no longer linked from the nav — kept only in case we want to compare against the one-page approach; they won't be kept in sync with further changes unless asked.
+
+**Known follow-up (not urgent):** the one-page version loads all of Dalila's portfolio images on a single page load; added `loading="lazy"` to everything below the fold, but a real launch should still resize/compress the largest source images (see round 1's note).
+
 ## Instagram post links (replaces Notion articles plan)
 
 **Status:** planning — not implemented yet.

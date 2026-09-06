@@ -13,6 +13,7 @@
   --accent-2: oklch(0.72 0.15 55);
 }
 * { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: var(--bg);
@@ -23,12 +24,19 @@ a { color: inherit; text-decoration: none; }
 a:hover { color: var(--accent); }
 img { display: block; max-width: 100%; }
 
+/* One-page layout: sections are scroll targets under a sticky nav */
+.page-section { scroll-margin-top: 88px; }
+
 .nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 32px 6vw;
   border-bottom: 1px solid var(--border);
+  background: var(--bg);
   flex-wrap: wrap;
   gap: 20px;
 }
@@ -58,6 +66,31 @@ img { display: block; max-width: 100%; }
   margin: 0;
 }
 .section-head .line { flex: 1; height: 1px; background: var(--border); }
+
+/* Full-width banner between sections, one-page layout */
+.section-banner {
+  position: relative;
+  height: 42vh;
+  min-height: 260px;
+  overflow: hidden;
+}
+.section-banner img { width: 100%; height: 100%; object-fit: cover; }
+.section-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, var(--bg-edge) 0%, transparent 55%);
+}
+.section-banner .caption {
+  position: absolute;
+  left: 6vw;
+  bottom: 24px;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
 
 .page-head { padding: 8vw 6vw 3vw; }
 .eyebrow {
