@@ -46,7 +46,8 @@
     </figure>
     <div class="carousel-caption">
       <p class="eyebrow">Escultura &amp; Instalação</p>
-      <h1>O que <em>escorre</em>, o que resiste</h1>
+      <h1>A arte diz o <em>impronunciável</em>,<br/>traduz o intraduzível</h1>
+      <p class="attribution">Interpretação/adaptação de uma frase de Leonardo da Vinci</p>
     </div>
     <div class="carousel-dots">
       <button class="dot is-active" data-index="0" aria-label="Slide 1"></button>
@@ -82,13 +83,13 @@
 
   <section class="reveal-section">
     <div class="reveal-media reveal-fade">
-      <img src="../../images/portfolio_dalila/originais/Luminarias_Natureza_e_a_Luz.jpg" alt="Natureza e a Luz" loading="lazy" />
+      <img src="../../images/portfolio_dalila/portifolio_6.jpg" alt="Iluminação Étnica Interna" loading="lazy" />
     </div>
     <div class="reveal-text reveal-fade">
-      <p class="eyebrow">Objetos autorais</p>
-      <h2>Natureza <em>e a Luz</em></h2>
-      <p>Luminárias esculpidas à mão, cada uma com sua própria talha e postura — objetos de encomenda, feitos um a um.</p>
-      <a class="more" href="#design">Ver em Design →</a>
+      <p class="eyebrow">Cerâmica iluminada</p>
+      <h2>Iluminação <em>Étnica</em></h2>
+      <p>Peça talhada à mão em cerâmica, iluminada por dentro — a luz atravessa os cortes do rosto esculpido. Parte da série "Luminárias Étnicas".</p>
+      <a class="more" href="#portfolio">Ver no portfólio →</a>
     </div>
   </section>
 
@@ -128,91 +129,96 @@
   </div>
 
   <section class="gallery-viewer reveal-fade" id="galleryViewer">
-    <img id="viewerImg" src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" />
+    <div class="gallery-viewer-frame" id="viewerFrame">
+      <img id="viewerImg" src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" />
+      <button type="button" class="viewer-nav viewer-prev" id="viewerPrev" aria-label="Obra anterior">&lsaquo;</button>
+      <button type="button" class="viewer-nav viewer-next" id="viewerNext" aria-label="Próxima obra">&rsaquo;</button>
+    </div>
     <p id="viewerCaption">&quot;Janelas&quot; — Primeira Fase</p>
+    <p class="viewer-hint">Deslize, ou use as setas, para ver as próximas obras</p>
   </section>
 
   <section class="gallery-grid reveal-fade" style="transition-delay: 0.1s">
-    <a class="gallery-item is-selected" href="../../images/portfolio_dalila/portifolio_19.jpg">
+    <button type="button" class="gallery-item is-selected" data-src="../../images/portfolio_dalila/portifolio_19.jpg" data-alt="Janelas - Primeira Fase">
       <img src="../../images/portfolio_dalila/portifolio_19.jpg" alt="Janelas - Primeira Fase" loading="lazy" />
       <p>&quot;Janelas&quot; — Primeira Fase</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/originais/portifolio_1.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/originais/portifolio_1.jpg" data-alt="Janela das 3: Uma Homenagem I">
       <img src="../../images/portfolio_dalila/originais/portifolio_1.jpg" alt="Janela das 3: Uma Homenagem I" loading="lazy" />
       <p>&quot;Janela das 3: Uma Homenagem I&quot; — frente e verso</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_2.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_2.jpg" data-alt="Janela das 3: Uma Homenagem II">
       <img src="../../images/portfolio_dalila/portifolio_2.jpg" alt="Janela das 3: Uma Homenagem II" loading="lazy" />
       <p>&quot;Janela das 3: Uma Homenagem II&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_5.png">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_5.png" data-alt="Luminárias Étnicas">
       <img src="../../images/portfolio_dalila/portifolio_5.png" alt="Luminárias Étnicas" loading="lazy" />
       <p>&quot;Luminárias Étnicas&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_6.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_6.jpg" data-alt="Iluminação Étnica Interna">
       <img src="../../images/portfolio_dalila/portifolio_6.jpg" alt="Iluminação Étnica Interna" loading="lazy" />
       <p>&quot;Iluminação Étnica Interna&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_7.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_7.jpg" data-alt="Contemporaneidade de N.Sa. Aparecida I">
       <img src="../../images/portfolio_dalila/portifolio_7.jpg" alt="Contemporaneidade de N.Sa. Aparecida I" loading="lazy" />
       <p>&quot;Contemporaneidade de N.Sa. Aparecida I&quot; — Acervo do Museu de Arte Sacra do Santuário N.S. Aparecida</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_8.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_8.jpg" data-alt="Contemporaneidade de N.Sa. Aparecida II">
       <img src="../../images/portfolio_dalila/portifolio_8.jpg" alt="Contemporaneidade de N.Sa. Aparecida II" loading="lazy" />
       <p>&quot;Contemporaneidade de N.Sa. Aparecida II&quot; — Acervo do Museu de Arte Sacra do Santuário N.S. Aparecida</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_20.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_20.jpg" data-alt="Pontes Passagens - 450 Anos de S. Paulo">
       <img src="../../images/portfolio_dalila/portifolio_20.jpg" alt="Pontes Passagens - 450 Anos de S. Paulo" loading="lazy" />
       <p>&quot;Pontes Passagens — 450 Anos de S. Paulo&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_9.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_9.jpg" data-alt="Estandarte Folia de Reis - verso">
       <img src="../../images/portfolio_dalila/portifolio_9.jpg" alt="Estandarte Folia de Reis - verso" loading="lazy" />
       <p>Detalhe do verso do Estandarte &quot;Folia de Reis&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_10.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_10.jpg" data-alt="Estandarte Folia de Reis - frente">
       <img src="../../images/portfolio_dalila/portifolio_10.jpg" alt="Estandarte Folia de Reis - frente" loading="lazy" />
       <p>Estandarte &quot;Folia de Reis&quot; — frente</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_11.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_11.jpg" data-alt="Brasil/Japão: Simbiose Cultural I - verso">
       <img src="../../images/portfolio_dalila/portifolio_11.jpg" alt="Brasil/Japão: Simbiose Cultural I - verso" loading="lazy" />
       <p>Detalhe verso &quot;Brasil/Japão: Simbiose Cultural I&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_12.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_12.jpg" data-alt="Brasil/Japão: Simbiose Cultural I - frente">
       <img src="../../images/portfolio_dalila/portifolio_12.jpg" alt="Brasil/Japão: Simbiose Cultural I - frente" loading="lazy" />
       <p>Detalhe frente &quot;Brasil/Japão: Simbiose Cultural I&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_13.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_13.jpg" data-alt="Drumond: Homenagem de 100 Anos">
       <img src="../../images/portfolio_dalila/portifolio_13.jpg" alt="Drumond: Homenagem de 100 Anos" loading="lazy" />
       <p>&quot;Drumond: Homenagem de 100 Anos&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_14.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_14.jpg" data-alt="Preciosa Herança Brasileira">
       <img src="../../images/portfolio_dalila/portifolio_14.jpg" alt="Preciosa Herança Brasileira" loading="lazy" />
       <p>&quot;Preciosa Herança Brasileira&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_15.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_15.jpg" data-alt="O Homem e Seus Principais Objetivos">
       <img src="../../images/portfolio_dalila/portifolio_15.jpg" alt="O Homem e Seus Principais Objetivos" loading="lazy" />
       <p>&quot;O Homem e Seus Principais Objetivos&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_16.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_16.jpg" data-alt="Jorge Amado, Amado Jorge">
       <img src="../../images/portfolio_dalila/portifolio_16.jpg" alt="Jorge Amado, Amado Jorge" loading="lazy" />
       <p>&quot;Jorge Amado, Amado Jorge&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_17.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_17.jpg" data-alt="Jorge Amado: Da Bahia para o Mundo">
       <img src="../../images/portfolio_dalila/portifolio_17.jpg" alt="Jorge Amado: Da Bahia para o Mundo" loading="lazy" />
       <p>Detalhe instalação &quot;Jorge Amado: Da Bahia para o Mundo&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/portifolio_18.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/portifolio_18.jpg" data-alt="Homenagem Africana">
       <img src="../../images/portfolio_dalila/portifolio_18.jpg" alt="Homenagem Africana" loading="lazy" />
       <p>&quot;Homenagem Africana&quot;</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/originais/portifolio_3.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/originais/portifolio_3.jpg" data-alt="Poluição das Águas e o Código de Barras III - frente">
       <img src="../../images/portfolio_dalila/originais/portifolio_3.jpg" alt="Poluição das Águas e o Código de Barras III - frente" loading="lazy" />
       <p>&quot;Poluição das Águas e o Código de Barras III&quot; — frente</p>
-    </a>
-    <a class="gallery-item" href="../../images/portfolio_dalila/originais/portifolio_4.jpg">
+    </button>
+    <button type="button" class="gallery-item" data-src="../../images/portfolio_dalila/originais/portifolio_4.jpg" data-alt="Poluição das Águas e o Código de Barras III - verso">
       <img src="../../images/portfolio_dalila/originais/portifolio_4.jpg" alt="Poluição das Águas e o Código de Barras III - verso" loading="lazy" />
       <p>&quot;Poluição das Águas e o Código de Barras III&quot; — verso</p>
-    </a>
+    </button>
   </section>
 
   <!-- Design -->
@@ -344,6 +350,7 @@
         <textarea id="mensagem" rows="5" name="your_message"></textarea>
       </div>
       <button type="submit">Enviar</button>
+      <p class="form-note">Abre seu aplicativo de email, com a mensagem já preenchida, para você enviar.</p>
     </form>
   </section>
 
@@ -360,9 +367,31 @@
   </footer>
 
   <script>
+    // Shared swipe-gesture helper: calls onLeft()/onRight() after a horizontal
+    // drag past the distance threshold. Ignores drags that are more vertical
+    // than horizontal, so page scrolling still works normally.
+    function addSwipe(el, onLeft, onRight) {
+      var startX = null, startY = null;
+      el.addEventListener('touchstart', function (e) {
+        if (e.touches.length !== 1) return;
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+      el.addEventListener('touchend', function (e) {
+        if (startX === null) return;
+        var dx = e.changedTouches[0].clientX - startX;
+        var dy = e.changedTouches[0].clientY - startY;
+        startX = null;
+        if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) {
+          if (dx < 0) onLeft(); else onRight();
+        }
+      }, { passive: true });
+    }
+
     (function () {
       var slides = document.querySelectorAll('#top .carousel-slide');
       var dots = document.querySelectorAll('#top .dot');
+      var carousel = document.getElementById('top');
       var current = 0;
       var timer;
 
@@ -375,6 +404,7 @@
       }
 
       function next() { show(current + 1); }
+      function prev() { show(current - 1); }
 
       function restart() {
         clearInterval(timer);
@@ -388,28 +418,40 @@
         });
       });
 
+      addSwipe(carousel, function () { next(); restart(); }, function () { prev(); restart(); });
+
       if (slides.length > 1) restart();
     })();
 
     (function () {
       var items = Array.prototype.slice.call(document.querySelectorAll('.gallery-item'));
       var viewer = document.getElementById('galleryViewer');
+      var viewerFrame = document.getElementById('viewerFrame');
       var viewerImg = document.getElementById('viewerImg');
       var viewerCaption = document.getElementById('viewerCaption');
+      var current = 0;
 
-      items.forEach(function (item) {
-        item.addEventListener('click', function (event) {
-          event.preventDefault();
-          items.forEach(function (i) { i.classList.remove('is-selected'); });
-          item.classList.add('is-selected');
-          var img = item.querySelector('img');
-          viewerImg.src = item.getAttribute('href');
-          viewerImg.alt = img ? img.alt : '';
-          var caption = item.querySelector('p');
-          viewerCaption.textContent = caption ? caption.textContent : '';
-          viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      function show(index, opts) {
+        current = (index + items.length) % items.length;
+        var item = items[current];
+        items.forEach(function (i) { i.classList.remove('is-selected'); });
+        item.classList.add('is-selected');
+        viewerImg.src = item.getAttribute('data-src');
+        viewerImg.alt = item.getAttribute('data-alt') || '';
+        var caption = item.querySelector('p');
+        viewerCaption.textContent = caption ? caption.textContent : '';
+        if (opts && opts.scroll) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      items.forEach(function (item, index) {
+        item.addEventListener('click', function () {
+          show(index, { scroll: true });
         });
       });
+
+      document.getElementById('viewerNext').addEventListener('click', function () { show(current + 1); });
+      document.getElementById('viewerPrev').addEventListener('click', function () { show(current - 1); });
+      addSwipe(viewerFrame, function () { show(current + 1); }, function () { show(current - 1); });
     })();
 
     (function () {

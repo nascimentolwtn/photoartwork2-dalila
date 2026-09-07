@@ -116,6 +116,13 @@ img { display: block; max-width: 100%; }
   min-height: 480px;
   overflow: hidden;
   background: var(--bg-recessed);
+  touch-action: pan-y;
+}
+.carousel-caption .attribution {
+  margin: 14px 0 0;
+  font-size: 12px;
+  font-style: italic;
+  color: var(--text-muted);
 }
 .carousel-slide {
   position: absolute;
@@ -272,22 +279,61 @@ img { display: block; max-width: 100%; }
 }
 .design-card .btn:hover { border-color: var(--accent); }
 
-/* Portfolio: large "now viewing" image above the thumbnail grid */
-.gallery-viewer { padding: 0 6vw 4vw; }
+/* Portfolio: large swipeable "now viewing" image above the thumbnail grid */
+.gallery-viewer { padding: 0 6vw 4vw; position: relative; }
+.gallery-viewer-frame { position: relative; touch-action: pan-y; }
 .gallery-viewer img {
   width: 100%;
   max-height: 68vh;
   object-fit: contain;
   background: var(--bg-recessed);
   border: 1px solid var(--border);
+  user-select: none;
+  -webkit-user-drag: none;
 }
 .gallery-viewer p {
   margin: 18px 0 0;
   font-size: 14px;
   color: var(--text-muted);
 }
+.viewer-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border-soft);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+}
+.viewer-nav:hover { border-color: var(--accent); color: var(--accent); }
+.viewer-prev { left: calc(6vw + 12px); }
+.viewer-next { right: calc(6vw + 12px); }
+.viewer-hint {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+  margin: 10px 0 0;
+}
 
 .gallery-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; padding: 0 6vw 6vw; }
+.gallery-item {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: none;
+  border: none;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
 .gallery-item img {
   width: 100%;
   height: 300px;
@@ -332,6 +378,7 @@ img { display: block; max-width: 100%; }
   cursor: pointer;
 }
 .contact-form button:hover { border-color: var(--accent); color: var(--accent); }
+.contact-form .form-note { font-size: 12px; color: var(--text-faint); margin: -4px 0 0; }
 
 .foot {
   display: flex;
@@ -360,4 +407,7 @@ img { display: block; max-width: 100%; }
   .carousel-caption, .carousel-dots { left: 6vw; right: 6vw; }
   .carousel-dots { bottom: 28px; justify-content: flex-start; }
   .carousel-caption { bottom: 64px; }
+  .viewer-nav { width: 38px; height: 38px; font-size: 17px; }
+  .viewer-prev { left: 3vw; }
+  .viewer-next { right: 3vw; }
 }
