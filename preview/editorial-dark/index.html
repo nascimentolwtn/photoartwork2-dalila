@@ -135,7 +135,7 @@
       <button type="button" class="viewer-nav viewer-next" id="viewerNext" aria-label="Próxima obra">&rsaquo;</button>
     </div>
     <p id="viewerCaption">&quot;Janelas&quot; — Primeira Fase</p>
-    <p class="viewer-hint">Deslize, ou use as setas, para ver as próximas obras</p>
+    <p class="viewer-hint">Deslize, ou use as setas, para ver as próximas obras — <span id="viewerCount">1 / 20</span></p>
   </section>
 
   <section class="gallery-grid reveal-fade" style="transition-delay: 0.1s">
@@ -429,6 +429,7 @@
       var viewerFrame = document.getElementById('viewerFrame');
       var viewerImg = document.getElementById('viewerImg');
       var viewerCaption = document.getElementById('viewerCaption');
+      var viewerCount = document.getElementById('viewerCount');
       var current = 0;
 
       function show(index, opts) {
@@ -440,6 +441,7 @@
         viewerImg.alt = item.getAttribute('data-alt') || '';
         var caption = item.querySelector('p');
         viewerCaption.textContent = caption ? caption.textContent : '';
+        viewerCount.textContent = (current + 1) + ' / ' + items.length;
         if (opts && opts.scroll) viewer.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
