@@ -146,3 +146,45 @@ WhatsApp + visible email/phone links are enough.
 - Apply consistently across all pages that carry that footer block.
 
 **Update (2026-09-05):** the Instagram link should also be added on the (new) contact page — currently `contact.html`, which lists phone/email/contact form and links to the old site. Note: it's not yet clear if "new contact page" means a planned redesign of `contact.html` or just adding the link to the existing one; needs confirming before implementing.
+
+---
+
+# SUMMARY
+
+Here's everything currently open, pulled from `docs/PLANS.md`, the ADRs, `.claude/REFRESH_PLAN.md`, and the napkin.
+
+## Decisions needed (need a call from you / Dalila)
+
+| #   | Decision                                                                                                                | Where it's tracked                                          | Notes                                                                                      |
+| --- | ----------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| 1   | **Is Editorial Dark approved to become the real site?**                                                                 | PLANS.md "Homepage redesign"                                | Prototype went through 6 feedback rounds (2026-09-05). No recorded "go" decision yet.      |
+| 2   | **Accept ADR 0005 (contact form delivery)** — it's *Proposed*                                                           | `docs/adr/0005`                                             | Blocks the contact-form fix.                                                               |
+| 2a  | Confirm `5511972822004` (Cel. 97282-2004) is the WhatsApp number to publish                                             | ADR 0005 / PLANS.md                                         | Or use a different line.                                                                   |
+| 2b  | Web3Forms **vs** FormSubmit.co for the email path                                                                       | ADR 0005                                                    |                                                                                            |
+| 2c  | Is an email form even needed, or is WhatsApp + visible email/phone links enough?                                        | ADR 0005                                                    | Dropping it removes the last third-party dependency.                                       |
+| 3   | **"New contact page"** — redesign `contact.html`, or just add the Instagram link to the existing one?                   | PLANS.md "General Instagram follow link", Update 2026-09-05 |                                                                                            |
+| 4   | **One-page vs multi-page** — keep or delete the standalone `sobre/portfolio/design/links/contato.html` in the prototype | PLANS.md feedback round 4                                   | Currently kept "only for comparison," going stale.                                         |
+| 5   | **When to port the prototype to an actual 11ty build**                                                                  | REFRESH_PLAN Phase 1–2                                      | Prototype is hand-written HTML/CSS/JS; the plan of record is an 11ty static build.         |
+| 6   | **Back up the workspace root repo?**                                                                                    | (raised earlier)                                            | It's local-only, no remote. Add one, or fold `docs/` into the `photoartwork2-dalila` repo. |
+| 7   | Copy `docs/adr/` onto the pushed GitHub branch?                                                                         | (raised after last push)                                    | The `[ADR nnnn]` links in the branch's `PLANS.md` don't resolve — no `adr/` folder there.  |
+
+## Actions decided, not yet done
+
+- **Footer "follow on Instagram" link** → `instagram.com/dalilahsnas`, applied across all pages carrying the footer block. Decided 2026-09-05, not implemented. (PLANS.md)
+- **Links page (`blog_2004.html`) Instagram entries** — approach chosen (manually curated), not built. Needs the actual **Instagram post URLs + a short title/caption each** from Dalila. (PLANS.md; ADR 0004 follow-up)
+- **Restyle the Links page** to the refresh design; "Blog" nav collapses into it (no separate post templates). (ADR 0004 follow-ups)
+- **Contact form real fix** — remove `action="MAILTO:"`, wire up whatever #2 lands on. The "this doesn't send" note is in the prototype; the fix isn't.
+- **Image optimization before launch** — the higher-res originals in `images/portfolio_dalila/originais/` are 1.4–2.5 MB (e.g. "Árvore da Vida" ~2.5 MB). `loading="lazy"` is in; resize/compress (WebP) still pending. (PLANS.md round 1 + round 6 follow-ups; napkin Content Gotchas #3)
+- **Finish the ADR 0004 cleanup of `REFRESH_PLAN.md`** — only Phase 1 was partly struck through. Still Notion-assuming and un-marked: Phase 2 "blog post template (for rendering Notion posts)", Phase 3 "Test Notion → 11ty sync", Phase 4 "Train mom on Notion workflow", and "Next Immediate Actions" items 1, 2, 5, 9. Also `REFRESH_PLAN` still describes a "hybrid" architecture and lists `@notionhq/client`.
+- **Document the manual FTP deploy runbook** — ADR 0002 mandates manual FTP to orgfree; REFRESH_PLAN Phase 1 has "set up the local deploy path: build script + FTP upload" as an unchecked box. No runbook exists yet.
+
+## Content Dalila still owes (REFRESH_PLAN "New Content Needed")
+
+- High-res photos of sculpture from the past ~2 years
+- Teaching/class descriptions; exhibition history (dates, venues)
+- Artist statement / bio (~500 words, modern tone)
+
+## Known bugs / risks (from the napkin, not yet resolved in source)
+
+- `home_2.jpg` (tulips) / `home_3.jpg` (stone ruins) are template stock — must never be shown as her work.
+- `código de barras Dalila.jpg` is a mirrored floor lamp, **not** "Poluição das Águas" — use `poluicao-frente/verso.jpg` for that piece.
