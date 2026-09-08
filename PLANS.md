@@ -65,6 +65,76 @@ Planning notes for upcoming site changes. No code changes are made until a plan 
 - Instagram post URL(s) to link (for the Links page entries).
 - Short title/caption to use as the link text for each post.
 
+## Contact form — actually deliver messages (email / WhatsApp)
+
+**Status:** planning — options gathered, not decided. See [ADR 0005](adr/0005-contact-form-delivery.md) (Proposed).
+
+**Problem:** `protos/editorial-dark/contato.html` (and the live site) use
+`action="MAILTO:dalila.nascimento@gmail.com"` on the form. That transmits
+nothing — it only asks the visitor's device to open a mail app with a draft.
+Unreliable on desktop, mostly broken on phones with no configured mail client
+(see homepage redesign feedback round 5, item 5). Constraints: pure static
+HTML on the orgfree.com free tier, FTP-only deploy, no PHP / backend
+([ADR 0002](adr/0002-hosting-stay-on-orgfree.md)), ideally no secrets in the
+page source.
+
+Contact details in the prototype: Tel. (11) 2959-0226 · Cel. (11) 97282-2004 ·
+`dalila.nascimento@gmail.com` · Instagram `@dalilahsnas`. WhatsApp E.164 for
+the mobile: `5511972822004`.
+
+### WhatsApp options
+
+- **A. Click-to-chat link/button** — `https://wa.me/5511972822004?text=<pre-filled>`.
+  Zero dependencies, most reliable on mobile (opens the app; WhatsApp
+  Web/desktop otherwise). Add as a CTA next to the form.
+- **B. Form that hands off to WhatsApp** — keep the Nome/Email/Mensagem
+  fields; on submit, `preventDefault()` and
+  `window.open('https://wa.me/5511972822004?text=' + encodeURIComponent(templated body))`.
+  Visitor reviews in WhatsApp and sends. Message comes from *their* number and
+  requires they have WhatsApp; Dalila gets their WhatsApp contact, not
+  necessarily an email.
+
+### Email options
+
+- **C. Third-party form backend (recommended for email).** Form POSTs to their
+  endpoint, they forward to Gmail. No backend, no build step, free tiers.
+  - *Web3Forms* — one access key in a hidden field, no account; honeypot +
+    optional hCaptcha; unlimited free tier.
+  - *FormSubmit.co* — `action="https://formsubmit.co/<email or token>"`, no
+    account; first submission triggers a one-time activation email.
+  - *Formspree* — account + form ID; 50 submissions/mo free.
+  - *Getform / Basin* — account + endpoint; similar.
+  - Optionally `fetch()` on submit to stay on the page with an inline
+    "mensagem enviada" confirmation instead of redirecting.
+- **D. EmailJS** — client-side JS sends via a connected Gmail account, free
+  200/mo. Downside: public key sits in the page (scrapeable for spam), needs
+  their JS SDK loaded.
+- **E. Embedded Google Form** — replace the custom form with an embedded
+  Google Form; delivers to a Sheet + email notification, free, no backend.
+  Costs design control (iframe) — or just link out to it.
+- **F. Honest `mailto:` link** (not a form) —
+  `<a href="mailto:dalila.nascimento@gmail.com?subject=Contato%20site">`. Same
+  limitation as today but no fake "Enviar" button. Keep the `tel:` links too.
+
+### Ruled out
+
+- Serverless functions (Netlify/Cloudflare) and Netlify Forms — would mean
+  leaving orgfree, which [ADR 0002](adr/0002-hosting-stay-on-orgfree.md)
+  rules out.
+
+### Leaning toward (for the ADR to confirm)
+
+Do both channels — they serve different visitors:
+1. **WhatsApp click-to-chat button** (A) as the primary CTA — what Dalila
+   actually checks, nothing to maintain, never breaks.
+2. **Web3Forms or FormSubmit** (C) behind the existing form for people who
+   prefer email — one-time setup, delivers to Gmail; add the honeypot for spam.
+3. Keep the visible `mailto:` and `tel:` links as fallback.
+
+**Open questions:** confirm the WhatsApp number is the right one to publish;
+pick Web3Forms vs FormSubmit; decide whether email delivery is even needed if
+WhatsApp + visible email/phone links are enough.
+
 ## General Instagram follow link in the footer
 
 **Status:** planning — not implemented yet.
